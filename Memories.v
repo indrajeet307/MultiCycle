@@ -17,45 +17,45 @@ wire    [31:0]wo20,wo21,wo22,wo23;
 wire    [31:0]wo24,wo25,wo26,wo27;
 wire    [31:0]wo28,wo29,wo30,wo31,demuxOut,m0Out;
 demux1to32 dm0(addr[4:0],demuxOut);
-MemReg reg00(clk,reset,(memWrite & demuxOut[0]),in0,data,wo0);
-MemReg reg01(clk,reset,(memWrite & demuxOut[1]),in1,data,wo1);
-MemReg reg02(clk,reset,(memWrite & demuxOut[2]),in2,data,wo2);
-MemReg reg03(clk,reset,(memWrite & demuxOut[3]),in3,data,wo3);
+Reg reg00(clk,reset,(memWrite & demuxOut[0]),in0,data,wo0);
+Reg reg01(clk,reset,(memWrite & demuxOut[1]),in1,data,wo1);
+Reg reg02(clk,reset,(memWrite & demuxOut[2]),in2,data,wo2);
+Reg reg03(clk,reset,(memWrite & demuxOut[3]),in3,data,wo3);
                                              
-MemReg reg04(clk,reset,(memWrite & demuxOut[4]),in4,data,wo4);
-MemReg reg05(clk,reset,(memWrite & demuxOut[5]),in5,data,wo5);
-MemReg reg06(clk,reset,(memWrite & demuxOut[6]),in6,data,wo6);
-MemReg reg07(clk,reset,(memWrite & demuxOut[7]),in7,data,wo7);
+Reg reg04(clk,reset,(memWrite & demuxOut[4]),in4,data,wo4);
+Reg reg05(clk,reset,(memWrite & demuxOut[5]),in5,data,wo5);
+Reg reg06(clk,reset,(memWrite & demuxOut[6]),in6,data,wo6);
+Reg reg07(clk,reset,(memWrite & demuxOut[7]),in7,data,wo7);
                                             
-MemReg reg08(clk,reset,(memWrite & demuxOut[8]),in8,data,wo8);
-MemReg reg09(clk,reset,(memWrite & demuxOut[9]),in9,data,wo9);
-MemReg reg10(clk,reset,(memWrite & demuxOut[10]),in10,data,wo10);
-MemReg reg11(clk,reset,(memWrite & demuxOut[11]),in11,data,wo11);
+Reg reg08(clk,reset,(memWrite & demuxOut[8]),in8,data,wo8);
+Reg reg09(clk,reset,(memWrite & demuxOut[9]),in9,data,wo9);
+Reg reg10(clk,reset,(memWrite & demuxOut[10]),in10,data,wo10);
+Reg reg11(clk,reset,(memWrite & demuxOut[11]),in11,data,wo11);
                                                
-MemReg reg12(clk,reset,(memWrite & demuxOut[12]),in12,data,wo12);
-MemReg reg13(clk,reset,(memWrite & demuxOut[13]),in13,data,wo13);
-MemReg reg14(clk,reset,(memWrite & demuxOut[14]),in14,data,wo14);
-MemReg reg15(clk,reset,(memWrite & demuxOut[15]),in15,data,wo15);
+Reg reg12(clk,reset,(memWrite & demuxOut[12]),in12,data,wo12);
+Reg reg13(clk,reset,(memWrite & demuxOut[13]),in13,data,wo13);
+Reg reg14(clk,reset,(memWrite & demuxOut[14]),in14,data,wo14);
+Reg reg15(clk,reset,(memWrite & demuxOut[15]),in15,data,wo15);
                                               
-MemReg reg16(clk,reset,(memWrite & demuxOut[16]),in16,data,wo16);
-MemReg reg17(clk,reset,(memWrite & demuxOut[17]),in17,data,wo17);
-MemReg reg18(clk,reset,(memWrite & demuxOut[18]),in18,data,wo18);
-MemReg reg19(clk,reset,(memWrite & demuxOut[19]),in19,data,wo19);
+Reg reg16(clk,reset,(memWrite & demuxOut[16]),in16,data,wo16);
+Reg reg17(clk,reset,(memWrite & demuxOut[17]),in17,data,wo17);
+Reg reg18(clk,reset,(memWrite & demuxOut[18]),in18,data,wo18);
+Reg reg19(clk,reset,(memWrite & demuxOut[19]),in19,data,wo19);
                                               
-MemReg reg20(clk,reset,(memWrite & demuxOut[20]),in20,data,wo20);
-MemReg reg21(clk,reset,(memWrite & demuxOut[21]),in21,data,wo21);
-MemReg reg22(clk,reset,(memWrite & demuxOut[22]),in22,data,wo22);
-MemReg reg23(clk,reset,(memWrite & demuxOut[23]),in23,data,wo23);
+Reg reg20(clk,reset,(memWrite & demuxOut[20]),in20,data,wo20);
+Reg reg21(clk,reset,(memWrite & demuxOut[21]),in21,data,wo21);
+Reg reg22(clk,reset,(memWrite & demuxOut[22]),in22,data,wo22);
+Reg reg23(clk,reset,(memWrite & demuxOut[23]),in23,data,wo23);
                                               
-MemReg reg24(clk,reset,(memWrite & demuxOut[24]),in24,data,wo24);
-MemReg reg25(clk,reset,(memWrite & demuxOut[25]),in25,data,wo25);
-MemReg reg26(clk,reset,(memWrite & demuxOut[26]),in26,data,wo26);
-MemReg reg27(clk,reset,(memWrite & demuxOut[27]),in27,data,wo27);
+Reg reg24(clk,reset,(memWrite & demuxOut[24]),in24,data,wo24);
+Reg reg25(clk,reset,(memWrite & demuxOut[25]),in25,data,wo25);
+Reg reg26(clk,reset,(memWrite & demuxOut[26]),in26,data,wo26);
+Reg reg27(clk,reset,(memWrite & demuxOut[27]),in27,data,wo27);
                                              
-MemReg reg28(clk,reset,(memWrite & demuxOut[28]),in28,data,wo28);
-MemReg reg29(clk,reset,(memWrite & demuxOut[29]),in29,data,wo29);
-MemReg reg30(clk,reset,(memWrite & demuxOut[30]),in30,data,wo30);
-MemReg reg31(clk,reset,(memWrite & demuxOut[31]),in31,data,wo31);
+Reg reg28(clk,reset,(memWrite & demuxOut[28]),in28,data,wo28);
+Reg reg29(clk,reset,(memWrite & demuxOut[29]),in29,data,wo29);
+Reg reg30(clk,reset,(memWrite & demuxOut[30]),in30,data,wo30);
+Reg reg31(clk,reset,(memWrite & demuxOut[31]),in31,data,wo31);
 mux32to1 m0(wo0, wo1, wo2, wo3,
 			wo4, wo5, wo6, wo7,
 			wo8, wo9, wo10,wo11,
