@@ -65,7 +65,7 @@ always@(negedge clk)
 			begin
 			RegDest=1;
 			RegWrite=1;
-			memToReg=0;
+			memToReg=1;
 			stateOut=6'd0;
 			PCWrite=0;IRWrite=0;memWrite=0;
 			end
