@@ -53,7 +53,7 @@ case(instr)
 endcase
 
 endmodule
-module ALUControl(input [1:0] ALUOp,[5:0] func,output reg [3:0]ALUCtrOut);
+/*module ALUControl(input [1:0] ALUOp,[5:0] func,output reg [3:0]ALUCtrOut);
 always@(ALUOp,func)
 case(ALUOp)
 	2'b00: ALUCtrOut=4'b0010;
@@ -68,3 +68,4 @@ case(ALUOp)
 		endcase
 endcase
 endmodule
+*/

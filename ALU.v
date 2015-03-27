@@ -1,10 +1,10 @@
 module ALU(input [3:0]ALUOp,[31:0]in1,[31:0]in2,output reg zero,output reg[31:0] ALUout);
 always@(in1,in2,ALUOp)
 case(ALUOp)
-	4'b0000: ALUout=in1 & in2;
-	4'b0001: ALUout=in1 | in2;
-	4'b0010: ALUout=in1 + in2;
-	4'b0110: ALUout=in1 - in2;
+	4'b0000: begin  ALUout=in1 & in2; zero=1'b0; end
+	4'b0001: begin ALUout=in1 | in2; zero=1'b0; end
+	4'b0010: begin ALUout=in1 + in2; zero=1'b0; end
+	4'b0110: begin ALUout=in1 - in2; zero=1'b0; end
 	4'b0111:
 		begin
 			ALUout=in1 - in2;

@@ -40,7 +40,7 @@ DFF_Regular dff30(clk,reset,load,RegIn1[30],RegIn2[30],RegOut[30]);
 DFF_Regular dff31(clk,reset,load,RegIn1[31],RegIn2[31],RegOut[31]);
 endmodule
 
-module MemReg(input clk,reset,load,[31:0] RegIn1,[31:0] RegIn2,output[31:0] RegOut);
+module InstrReg(input clk,reset,load,[31:0] RegIn1,[31:0] RegIn2,output[31:0] RegOut);
 DFF_MEM dff00(clk,reset,load,RegIn1[0] ,RegIn2[0] ,RegOut[0]);
 DFF_MEM dff01(clk,reset,load,RegIn1[1] ,RegIn2[1] ,RegOut[1]);
 DFF_MEM dff02(clk,reset,load,RegIn1[2] ,RegIn2[2] ,RegOut[2]);

@@ -18,8 +18,9 @@ wire  [3:0]ALUCtrl;
 wire  [4:0]RT0Out;
 wire  [6:0]stateOut,SR0Out;
 wire   Z;
-
-Reg PC0(.clk(clk),.reset(reset),.load(PCWrite),.RegIn1(32'b0),.RegIn2(MBRA0Out),.RegOut(PC0Out));
+and AND0(AND0Out,Z,PCwriteCond);
+or OR0(OR0Out,PCWrite,AND0Out);
+Reg PC0(.clk(clk),.reset(reset),.load(OR0Out),.RegIn1(32'b0),.RegIn2(MBRA0Out),.RegOut(PC0Out));
 mux2to1_32bits IDMux0(.sel(IorD),.in1(PC0Out),.in2(ALUOut0Out),.muxOut(IDMux0Out));
 
 Memory Mem0(.clk(clk),.reset(reset),.memRead(memRead),.memWrite(memWrite),.addr(IDMux0Out),
@@ -132,7 +133,8 @@ initial begin
 	*/
 	//in0=32'b000010_00000_00010_0000_0000_0000_0101;
 	//in1=32'b000010_00001_00011_0000_0000_0000_0101;
-	in0=32'b010000_00000_00011_0000_0000_0000_1000;
+	in0=32'b000010_00110_00100_0000_0000_0001_0000;
+	//in0=32'b010000_00000_00011_0000_0000_0000_1000;
 	in1=32'b010000_00000_00011_0000_0000_0000_1000;
 	//in2=32'b10000_00011_00000_0000_0000_0000_0101;
 	in2=32'b010000_00000_00011_0000_0000_0000_1000;

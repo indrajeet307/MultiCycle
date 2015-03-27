@@ -25,7 +25,7 @@ always@(negedge clk)
 		case(stateIn)
 		6'd0:  
 			begin
-			PCwriteCond=1;PCSource=2'b00;
+			PCwriteCond=0;PCSource=2'b00;
 			memRead=1;memToReg=0;memWrite=0;
 			ALUsrcA=0;ALUsrcB=2'b01;RegWrite=0;
 			RegDest=0;IRWrite=1;ALUOp=2'b00;
@@ -34,11 +34,11 @@ always@(negedge clk)
 		6'd1: 
 			begin
 			ALUsrcA=0;ALUsrcB=2'b11;ALUOp=2'b00;
-			PCwriteCond=1;PCSource=2'b00;
+			PCwriteCond=0;PCSource=2'b00;
 			PCWrite=0;IRWrite=0;memWrite=0;RegWrite=0;
 			case(instr)
 				6'b000000:stateOut=6'd6;//rtype				
-				6'b000010:stateOut=6'd6;//i
+				6'b000010:stateOut=6'd10;//i
 				6'b000100:stateOut=6'd8;//beq
 				6'b001000:stateOut=6'd2;//lw
 				6'b010000:stateOut=6'd2;//sw
@@ -49,6 +49,7 @@ always@(negedge clk)
 			begin
 			ALUsrcA=1;ALUsrcB=2'b10;ALUOp=2'b00;
 			PCWrite=0;IRWrite=0;memWrite=0;RegWrite=0;
+			PCwriteCond=0;
 			if(instr[3])
 			stateOut=6'd3;
 			else if(instr[4])
@@ -60,6 +61,7 @@ always@(negedge clk)
 			IorD=1;
 			stateOut=6'd4;
 			PCWrite=0;IRWrite=0;memWrite=0;RegWrite=0;
+			PCwriteCond=0;
 			end
 		6'd4: 
 			begin
@@ -67,26 +69,26 @@ always@(negedge clk)
 			RegWrite=1;
 			memToReg=1;
 			stateOut=6'd0;
-			PCWrite=0;IRWrite=0;memWrite=0;
+			PCWrite=0;IRWrite=0;memWrite=0;PCwriteCond=0;
 			end
 		6'd5: 
 			begin
 			memWrite=1;
 			IorD=1;
 			stateOut=6'd0;
-			PCWrite=0;IRWrite=0;RegWrite=0;
+			PCWrite=0;IRWrite=0;RegWrite=0;PCwriteCond=0;
 			end
 		6'd6: 
 			begin
 			ALUsrcA=1;ALUsrcB=2'b00;ALUOp=2'b10;
 			PCWrite=0;IRWrite=0;memWrite=0;RegWrite=0;
-			stateOut=6'd7;
+			stateOut=6'd7;PCwriteCond=0;
 			end
 		6'd7: 
 			begin
 			RegDest=1;RegWrite=1;memToReg=0;
 			PCWrite=0;IRWrite=0;memWrite=0;
-			stateOut=6'd0;
+			stateOut=6'd0;PCwriteCond=0;
 			end
 		6'd8: 
 			begin
@@ -103,7 +105,19 @@ always@(negedge clk)
 			PCWrite=1;
 			PCSource=2'b10;
 			stateOut=6'd0;
-			IRWrite=0;memWrite=0;RegWrite=0;
+			IRWrite=0;memWrite=0;RegWrite=0;PCwriteCond=0;
+			end
+		6'd10: 
+			begin
+			ALUsrcA=1;ALUsrcB=2'b10;ALUOp=2'b00;
+			PCWrite=0;IRWrite=0;memWrite=0;RegWrite=0;
+			stateOut=6'd11;PCwriteCond=0;
+			end
+		6'd11: 
+			begin
+			RegDest=0;RegWrite=1;memToReg=0;
+			PCWrite=0;IRWrite=0;memWrite=0;
+			stateOut=6'd0;PCwriteCond=0;
 			end
 		endcase
 endmodule
